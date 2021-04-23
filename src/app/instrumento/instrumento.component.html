@@ -1,1 +1,46 @@
-<p>instrumento works!</p>
+
+  <h1>INSTRUMENTOS</h1>
+
+  <p *ngIf="!(instrumentos && instrumentos.length)">
+
+    No hay Instrumentos en la base de datos!
+
+  </p>
+
+  <table class="table table-striped table-hover" *ngIf="(instrumentos && instrumentos.length)">
+
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Marca</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let item of instrumentos" >
+
+        <td>{{item.nombreInstrumento}}</td>
+        <td>{{item.tipoInstrumento}}</td>
+        <td>{{item.marcaInstrumento}}</td>
+        <td>{{item.precioInstrumento}}</td>
+        <td>{{item.cantidad}}</td>
+
+        <td class="text-center">
+
+          <button class="btn btn-warning btn-sm" id="edit">Edit</button>
+          <button class="btn btn-danger btn-sm" id="delete">Delete</button>
+
+        </td>
+
+
+      </tr>
+
+    </tbody>
+  </table>
+

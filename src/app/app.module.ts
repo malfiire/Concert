@@ -11,6 +11,7 @@ import { InstrumentoComponent } from './instrumento/instrumento.component';
 import { InstrumentoService } from './instrumento/instrumento.service';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { InstrumentoFormComponent } from './instrumento/instrumento-form/instrumento-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,9 @@ import { InstrumentoFormComponent } from './instrumento/instrumento-form/instrum
     BrowserModule,
     AppRoutingModule,
     routing,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    ReactiveFormsModule
+    ],
   providers: [InstrumentoService],
   bootstrap: [AppComponent]
 })

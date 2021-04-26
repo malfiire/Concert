@@ -1,19 +1,29 @@
+
+import { HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { routing } from './app.routing';
 import { InstrumentoComponent } from './instrumento/instrumento.component';
 import { InstrumentoService } from './instrumento/instrumento.service';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { InstrumentoFormComponent } from './instrumento/instrumento-form/instrumento-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InstrumentoComponent
+    InstrumentoComponent,
+    NavMenuComponent,
+    InstrumentoFormComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    routing,
+    HttpClientModule
   ],
   providers: [InstrumentoService],
   bootstrap: [AppComponent]

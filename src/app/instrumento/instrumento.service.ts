@@ -10,6 +10,7 @@ export class InstrumentoService {
 
 
   private readonly baseURL = "http://localhost:57157/api/Instrumento";
+  
 
   constructor(private http: HttpClient) {}
 

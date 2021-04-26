@@ -14,3 +14,17 @@ table{
 #edit{
   margin-right: 10px;
 }
+
+#btn-create{
+  background-color: #262626;
+  color: white;
+}
+#edit{
+  background-color:#39C0ED;
+  color: white;
+}
+#delete{
+  background-color: #F93154;
+  color: white
+  ;
+}

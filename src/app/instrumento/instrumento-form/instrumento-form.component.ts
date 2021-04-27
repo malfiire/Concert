@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'selenium-webdriver';
 import { Instrumento } from '../instrumento';
 import { InstrumentoService } from '../instrumento.service';
 
@@ -71,6 +72,29 @@ export class InstrumentoFormComponent implements OnInit {
     })
   }
 
+  public saveOrEdit(): void{
+
+    let instrumento : Instrumento = Object.assign({}, this.formGroup.value);
+    
+    if(this.edit){
+      instrumento.id = this.idInstrumento;
+      this.instrumentoService.putInstrument(instrumento).subscribe(response=>
+        this.success(), error => console.error(error));
+    }else{
+      //insertar un nuevo instrumento
+      this.instrumentoService.postInstrument(instrumento).subscribe(response =>
+        this.success(), error => console.error(error));
+    }
+
+
+
+  }
+
+  //cuando las operaciones de guardar o editar sean correctas, 
+  //redirecciono hacia la tabla del instrumento, para ver los cambios.
+  private success():void{
+    this.router.navigate(["/instrumento"]);
+  }
   
 
 

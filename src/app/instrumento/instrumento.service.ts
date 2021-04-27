@@ -39,7 +39,7 @@ export class InstrumentoService {
 
   }
 
-  deleteInstrument(id: string):Observable<Instrumento>{
+  deleteInstrument(id: number):Observable<Instrumento>{
 
     return this.http.delete<Instrumento>(this.baseURL + "/" + id);
 

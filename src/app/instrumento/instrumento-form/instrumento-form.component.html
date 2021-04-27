@@ -1,1 +1,87 @@
 
+
+
+
+<div class="formulario">
+
+    <div class="mx-auto" id="edit-form">
+        <img src="https://img.icons8.com/clouds/300/000000/edit.png"/>
+    </div>
+
+
+    <form class="form" (ngSubmit)="saveOrEdit()" [formGroup]="formGroup" >
+
+    <div class="form-group">
+    <div class="box-input">
+        <input class="form-control"
+        id="nombreInstrumento"
+        type="text"
+        placeholder="Nombre"
+        required
+        formControlName="nombreInstrumento"/>
+    </div>
+    </div>  
+
+    <div class="form-group">
+    <div class="box-input">
+        <input class="form-control"
+        id="tipoInstrumento"
+        type="text"
+        placeholder="Tipo"
+        required
+        formControlName="tipoInstrumento"/>
+    </div>
+    </div>  
+
+
+    <div class="form-group">
+        <div class="box-input">
+            <input class="form-control"
+            id="marcaInstrumento"
+            type="text"
+            placeholder="Marca"
+            required
+            formControlName="marcaInstrumento"/>
+        </div>
+        </div> 
+     
+        <div class="form-group">
+            <div class="box-input">
+                <input class="form-control"
+                id="precioInstrumento"
+                type="number"
+                placeholder="Precio"
+                required
+                formControlName="precioInstrumento"/>
+            </div>
+            </div>  
+
+            <div class="form-group">
+                <div class="box-input">
+                    <input class="form-control"
+                    id="cantidad"
+                    type="number"
+                    placeholder="Cantidad"
+                    required
+                    formControlName="cantidad"/>
+                </div>
+                </div> 
+
+                
+                <div class="btn-submit" *ngIf="edit">
+                    <input type="submit"  value="Actualizar" class="btn-mine">
+                </div>
+                
+                
+                <div class="btn-submit" *ngIf="!edit">
+                    <input type="submit"  value="Crear Instrumento" class="btn-mine">
+                </div>
+
+</form>
+
+
+</div>
+
+
+
+

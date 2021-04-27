@@ -20,11 +20,19 @@ table{
   color: white;
 }
 #edit{
-  background-color:#39C0ED;
-  color: white;
+  background-color:#FBE450;
+  color: black;
 }
 #delete{
-  background-color: #F93154;
-  color: white
+  background-color: #60a3c2;
+  color: rgb(0, 0, 0)
   ;
+}
+#icon-edit{
+  color: #60a3c2;
+  margin-right: 7px;
+}
+
+i{
+  cursor: pointer;
 }

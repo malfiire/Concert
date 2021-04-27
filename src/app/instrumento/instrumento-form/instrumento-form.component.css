@@ -1,0 +1,58 @@
+#title-edit{
+    text-align: center;   
+}
+
+#edit-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    max-width: 100%;
+}
+
+h3{
+    text-align: center;
+}
+.formulario{
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-size: cover;
+    border: 1px solid rgb(195, 195, 195);
+}
+.formulario form{
+    width: 100%;
+}
+.formulario .box-input{
+    margin-bottom: 40px;
+    align-items: center;
+}
+
+.formulario .box-input input{
+    width: 100%;
+    outline: none;
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #a2a2a2;
+
+}
+.formulario input::placeholder{
+    color: #000000;
+}
+
+
+.formulario form .btn-submit .btn-mine{
+    font-size: 18px;
+    width: 100%;
+    background: #FBE450;
+    padding: 8px;
+    border: 1px solid #FBE450;
+    border-radius:10px;
+    color: #131313;
+}
+

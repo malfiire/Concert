@@ -7,7 +7,7 @@
 
   </p>
 
-  <table class="table table-striped table-hover" *ngIf="(instrumentos && instrumentos.length)">
+  <table class="table table-hover " *ngIf="(instrumentos && instrumentos.length)">
 
     <thead>
       <tr>
@@ -32,11 +32,17 @@
         <td>{{item.cantidad}}</td>
 
         <td class="text-center">
+          <a [routerLink]='["/instrumento-edit/"+ item.id]'>
+            <i class="fas fa-edit fa-lg" id="icon-edit"></i>
+          </a>
+          
 
-          <button type="button" class="btn btn-ligth btn-sm" id="edit">Edit</button>
-          <button type="button" class="btn btn-light btn-sm" id="delete">Delete</button>
-
+         <a (click)="deleteInstrument(item.id)">
+          <i class="far fa-trash-alt fa-lg text-danger"></i>
+         </a> 
+         
         </td>
+
 
 
       </tr>
@@ -44,5 +50,6 @@
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-light" id="btn-create">Create</button>
+  <button type="button" class="btn btn-light" id="btn-create"
+  [routerLink]='["/instrumento-add"]'>Crear</button>
 

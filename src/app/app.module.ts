@@ -12,13 +12,15 @@ import { InstrumentoService } from './instrumento/instrumento.service';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { InstrumentoFormComponent } from './instrumento/instrumento-form/instrumento-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MusicoComponent } from './musico/musico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InstrumentoComponent,
     NavMenuComponent,
-    InstrumentoFormComponent
+    InstrumentoFormComponent,
+    MusicoComponent
   ],
   imports: [
     BrowserModule,

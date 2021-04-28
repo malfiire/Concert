@@ -1,0 +1,57 @@
+
+  <h1>MÚSICOS</h1>
+
+  <p *ngIf="!(musicos && musicos.length)">
+
+    No hay Músicos en la base de datos!
+
+  </p>
+
+  <table class="table table-hover " *ngIf="(musicos && musicos.length)">
+
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha de Ingreso</th>
+        <th>Sueldo</th>
+        <th>Instrumento</th>
+        <th></th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let item of musicos">
+
+        <td>{{item.nombreMusico}}</td>
+        <td>{{item.fechaIngreso | date: "dd-MM-yyyy"}}</td>
+        <td>{{item.sueldoMusico}}</td>
+        <td>{{getNameInstrumento(item.instrumentoId)}}</td>
+
+        <td class="text-center">
+          <a [routerLink]='["/musico-edit/"+ item.id]'>
+            <i class="fas fa-edit fa-lg" id="icon-edit"></i>
+          </a>
+
+
+         <a (click)="deleteMusico(item.id)">
+          <i class="far fa-trash-alt fa-lg text-danger"></i>
+         </a>
+
+        </td>
+
+
+
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="boton">
+
+    <button type="button" class="btn btn-light" id="btn-create"
+    [routerLink]='["/musico-add"]'>Crear</button>
+
+  </div>
+

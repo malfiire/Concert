@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Instrumento } from './instrumento';
 
@@ -10,9 +10,15 @@ export class InstrumentoService {
 
 
   private readonly baseURL = "http://localhost:57157/api/Instrumento";
-  
+  private apiUrl;
 
-  constructor(private http: HttpClient) {}
+
+
+  constructor(private http: HttpClient) {
+
+
+
+  }
 
 
   getInstruments():Observable<Instrumento[]>{
@@ -44,6 +50,29 @@ export class InstrumentoService {
     return this.http.delete<Instrumento>(this.baseURL + "/" + id);
 
   }
+
+
+  //configuramos el tipo de respuesta
+  //de una petición http
+  formHtppOptions(): any {
+    const httpOptionsPlain = {
+      headers: new HttpHeaders({
+        'Accept': 'text/plain',
+        'Content-Type': 'text/plain'
+      }),
+      'responseType': 'text'
+    };
+    return httpOptionsPlain;
+  }
+
+
+  getNameInstrumento(id:number):Observable<any>{
+
+    this.apiUrl = this.baseURL + "/GetNameInstrument";
+    return this.http.get<any>(this.apiUrl + "/" + id, this.formHtppOptions());
+  }
+
+
 
 
 

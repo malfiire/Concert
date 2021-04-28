@@ -35,12 +35,12 @@
           <a [routerLink]='["/instrumento-edit/"+ item.id]'>
             <i class="fas fa-edit fa-lg" id="icon-edit"></i>
           </a>
-          
+
 
          <a (click)="deleteInstrument(item.id)">
           <i class="far fa-trash-alt fa-lg text-danger"></i>
-         </a> 
-         
+         </a>
+
         </td>
 
 
@@ -50,6 +50,9 @@
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-light" id="btn-create"
-  [routerLink]='["/instrumento-add"]'>Crear</button>
+  <div class="boton">
 
+    <button type="button" class="btn btn-light" id="btn-create"
+    [routerLink]='["/instrumento-add"]'>Crear</button>
+
+  </div>

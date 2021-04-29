@@ -16,7 +16,6 @@
         <th>Sueldo</th>
         <th>Instrumento</th>
         <th></th>
-
       </tr>
     </thead>
 
@@ -27,7 +26,7 @@
         <td>{{item.nombreMusico}}</td>
         <td>{{item.fechaIngreso | date: "dd-MM-yyyy"}}</td>
         <td>{{item.sueldoMusico}}</td>
-        <td>{{getNameInstrumento(item.instrumentoId)}}</td>
+        <td>{{item.instrumentoId}}</td>
 
         <td class="text-center">
           <a [routerLink]='["/musico-edit/"+ item.id]'>

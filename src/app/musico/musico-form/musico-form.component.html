@@ -1,0 +1,74 @@
+
+<div class="formulario">
+
+  <div class="mx-auto" id="edit-form">
+      <img src="https://img.icons8.com/clouds/300/000000/edit.png"/>
+  </div>
+
+
+  <form class="form" (ngSubmit)="saveOrEdit()" [formGroup]="formGroup" >
+
+  <div class="form-group">
+  <div class="box-input">
+      <label>Nombre</label>
+      <input class="form-control"
+      id="nombreMusico"
+      type="text"
+      required
+      formControlName="nombreMusico"/>
+  </div>
+  </div>
+
+  <div class="form-group">
+  <div class="box-input">
+      <label>Fecha de Ingreso</label>
+      <input class="form-control"
+      id="fechaIngreso"
+      type="date"
+      required
+      formControlName="fechaIngreso"/>
+  </div>
+  </div>
+
+
+  <div class="form-group">
+      <div class="box-input">
+        <label>Sueldo</label>
+          <input class="form-control"
+          id="sueldoMusico"
+          type="text"
+          required
+          formControlName="sueldoMusico"/>
+      </div>
+      </div>
+
+      <div class="form-group">
+          <div class="box-input">
+            <label>Instrumento</label>
+              <input class="form-control"
+              id="instrumentoId"
+              type="number"
+
+              required
+              formControlName="instrumentoId"/>
+          </div>
+          </div>
+
+
+              <div class="btn-submit" *ngIf="edit">
+                  <input type="submit"  value="Actualizar" class="btn-mine">
+              </div>
+
+
+              <div class="btn-submit" *ngIf="!edit">
+                  <input type="submit"  value="Crear Instrumento" class="btn-mine">
+              </div>
+
+</form>
+
+
+</div>
+
+
+
+

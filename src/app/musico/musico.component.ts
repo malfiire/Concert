@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { error } from 'selenium-webdriver';
-import { Instrumento } from '../instrumento/instrumento';
 import { InstrumentoService } from '../instrumento/instrumento.service';
 import { Musico } from './musico';
 import { MusicoService } from './musico.service';
@@ -22,6 +21,7 @@ export class MusicoComponent implements OnInit {
 
   ngOnInit(): void {
     this.rellenarMusicos();
+    this.getNameInstrumento(2);
   }
   rellenarMusicos():void{
 

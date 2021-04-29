@@ -35,11 +35,14 @@ h3{
     width: 100%;
     outline: none;
     font-size: 15px;
-    padding: 12px;
     border-radius: 5px;
     border: 1px solid #a2a2a2;
 
 }
+.formulario input::placeholder{
+    color: #000000;
+}
+
 
 .formulario form .btn-submit .btn-mine{
     font-size: 18px;
@@ -51,10 +54,8 @@ h3{
     color: #131313;
     font-weight: 400;
 }
-
 label{
   color: #2d4146;
   font-weight: bold;
 }
-
 

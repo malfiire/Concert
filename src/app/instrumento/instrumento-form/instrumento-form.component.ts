@@ -23,9 +23,9 @@ export class InstrumentoFormComponent implements OnInit {
   idInstrumento : number;
 
   constructor(
-    private builder: FormBuilder, 
+    private builder: FormBuilder,
     private instrumentoService: InstrumentoService,
-    private router: Router, 
+    private router: Router,
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class InstrumentoFormComponent implements OnInit {
     this.activatedRoute.params.subscribe(param=>{
       //si recibe un id, significa que el usuario quiere entrar al formulario de edición
       if(param["id"] != undefined){
-        
+
         this.edit = true;
         this.idInstrumento = param["id"];
         this.instrumentoService.getInstrument(this.idInstrumento.toString())
@@ -75,7 +75,7 @@ export class InstrumentoFormComponent implements OnInit {
   public saveOrEdit(): void{
 
     let instrumento : Instrumento = Object.assign({}, this.formGroup.value);
-    
+
     if(this.edit){
       instrumento.id = this.idInstrumento;
       this.instrumentoService.putInstrument(instrumento).subscribe(response=>
@@ -90,12 +90,12 @@ export class InstrumentoFormComponent implements OnInit {
 
   }
 
-  //cuando las operaciones de guardar o editar sean correctas, 
+  //cuando las operaciones de guardar o editar sean correctas,
   //redirecciono hacia la tabla del instrumento, para ver los cambios.
   private success():void{
     this.router.navigate(["/instrumento"]);
   }
-  
+
 
 
 

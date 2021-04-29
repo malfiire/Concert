@@ -13,6 +13,10 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { InstrumentoFormComponent } from './instrumento/instrumento-form/instrumento-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MusicoComponent } from './musico/musico.component';
+import { NameInstrumentoPipe } from './instrumento/nameInstrumento/name-instrumento.pipe';
+import { NameInstrumentoService } from './instrumento/nameInstrumento/name-instrumento.service';
+import { MusicoFormComponent } from './musico/musico-form/musico-form.component';
+import { DatePipe } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { MusicoComponent } from './musico/musico.component';
     InstrumentoComponent,
     NavMenuComponent,
     InstrumentoFormComponent,
-    MusicoComponent
+    MusicoComponent,
+    NameInstrumentoPipe,
+    MusicoFormComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,7 @@ import { MusicoComponent } from './musico/musico.component';
     HttpClientModule,
     ReactiveFormsModule
     ],
-  providers: [InstrumentoService],
+  providers: [InstrumentoService, NameInstrumentoService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

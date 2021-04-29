@@ -42,16 +42,15 @@
       </div>
       </div>
 
-      <div class="form-group">
-          <div class="box-input">
-            <label>Instrumento</label>
-              <input class="form-control"
-              id="instrumentoId"
-              type="number"
-
-              required
-              formControlName="instrumentoId"/>
-          </div>
+          <div class="form-group">
+            <div class="box-input">
+              <label>Instrumento</label>
+              <select formControlName="instrumentoId">
+                <option  *ngFor="let item of instrumentos" [ngValue]="item.id">
+                  {{item.nombreInstrumento}}
+                </option>
+              </select>
+            </div>
           </div>
 
 

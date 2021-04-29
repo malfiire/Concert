@@ -6,6 +6,8 @@ import { Musico } from '../musico';
 import { MusicoService } from '../musico.service';
 
 import { DatePipe } from "@angular/common";
+import { InstrumentoService } from 'src/app/instrumento/instrumento.service';
+import { Instrumento } from 'src/app/instrumento/instrumento';
 
 @Component({
   selector: 'app-musico-form',
@@ -20,6 +22,11 @@ export class MusicoFormComponent implements OnInit {
 
   idMusico:number;
 
+  //para que al dar de alta a un musico pueda elegir
+  //el instrumento que quiera tocar
+  instrumentos:Instrumento[];
+
+
 
   constructor(
     private builder: FormBuilder,
@@ -27,7 +34,8 @@ export class MusicoFormComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     //para formatear la fecha de ingreso del músico
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private instrumentoService: InstrumentoService
 
     ) { }
 
@@ -39,6 +47,9 @@ export class MusicoFormComponent implements OnInit {
     //rellenamos el formualario con los datos para acutalizar
     //o simplemente lo dejamos vacío si se trato de la creación
     this.checkForm();
+
+
+    this.rellenarInstrumentos();
 
   }
 
@@ -101,6 +112,12 @@ export class MusicoFormComponent implements OnInit {
   //redirecciono hacia la tabla del musicos, para ver los cambios.
   private success():void{
     this.router.navigate(["/musico"]);
+  }
+
+
+  private rellenarInstrumentos():void{
+    this.instrumentoService.getInstruments().subscribe(item =>
+      this.instrumentos = item, error => console.error(error));
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { error } from 'selenium-webdriver';
+import { Musico } from '../musico/musico';
 import { Instrumento } from './instrumento';
 import { InstrumentoService } from './instrumento.service';
 
@@ -28,8 +29,10 @@ export class InstrumentoComponent implements OnInit {
   }
 
   deleteInstrument(id: number){
-    this.instrumentoService.deleteInstrument(id).subscribe(item => 
+    this.instrumentoService.deleteInstrument(id).subscribe(item =>
       this.rellenarInstrumentos(), error=> error(error));
   }
+
+
 
 }

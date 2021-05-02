@@ -15,8 +15,8 @@ export class NameInstrumentoPipe implements PipeTransform {
 
 
   transform(value: any): any {
-    this.nameInstrumentoService.saveNameInstrumento(value);
-    return localStorage.getItem("nameInstrument");
+
+    return this.nameInstrumentoService.getNameInstrumento(value);
   }
 
 }

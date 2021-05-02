@@ -9,6 +9,7 @@ import { Musico } from './musico';
 export class MusicoService {
 
   private readonly baseURL = "http://localhost:57157/api/Musico";
+  private apiUrl;
 
   constructor(private http: HttpClient) { }
 
@@ -16,6 +17,11 @@ export class MusicoService {
 
   return this.http.get<Musico[]>(this.baseURL);
 
+  }
+
+  getMusicosWithInstrumentName():Observable<any>{
+    this.apiUrl = this.baseURL + "/GetMusicosWithInstrumentName";
+    return this.http.get<any>(this.apiUrl);
   }
 
   getMusico(id:number):Observable<Musico>{
@@ -33,6 +39,8 @@ export class MusicoService {
   delete(id:number):Observable<Musico>{
     return this.http.delete<Musico>(this.baseURL + "/" + id);
   }
+
+
 
 
 

@@ -72,6 +72,16 @@ export class InstrumentoService {
     return this.http.get<any>(this.apiUrl + "/" + id, this.formHtppOptions());
   }
 
+  putReducirCantidad(id:number, instrumento : Instrumento):Observable<any>{
+    this.apiUrl = this.baseURL + "/PutReducirCantidad";
+    return this.http.put<any>(this.apiUrl + "/" + id, instrumento);
+  }
+
+  PutReducirAndAumentarCantidad(id:number, idNuevo:number,instrumento : Instrumento):Observable<any>{
+    this.apiUrl = this.baseURL + "/PutReducirAndAumentarCantidad";
+    return this.http.put<any>(this.apiUrl + "/" + id + "/" + idNuevo, instrumento);
+  }
+
 
 
 

@@ -13,13 +13,13 @@ export class NameInstrumentoService {
 
 
 
-  saveNameInstrumento(id:number): void{
+  getNameInstrumento(id:number):string{
 
     this.instrumentoService.getNameInstrumento(id)
     .subscribe(name => this.nameInstrumento = name,
     error => console.error(error));
 
-    localStorage.setItem("nameInstrument", this.nameInstrumento);
+    return this.nameInstrumento;
 
   }
 

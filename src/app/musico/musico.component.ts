@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { error } from 'selenium-webdriver';
-import { InstrumentoService } from '../instrumento/instrumento.service';
-import { Musico } from './musico';
 import { MusicoService } from './musico.service';
 
 @Component({
@@ -11,35 +9,26 @@ import { MusicoService } from './musico.service';
 })
 export class MusicoComponent implements OnInit {
 
-
-  musicos: Musico[];
-  nameInstrumento:string;
+  musicos: any; //para que pueda recibir cualquier tipado
 
 
-  constructor(private musicoService: MusicoService,
-    private instrumentoService:InstrumentoService) {   }
+  constructor(private musicoService: MusicoService) {   }
 
   ngOnInit(): void {
-    this.rellenarMusicos();
-    this.getNameInstrumento(2);
-  }
-  rellenarMusicos():void{
-
-    this.musicoService.getMusicos().subscribe(musico => this.musicos = musico ,
-      error => console.error(this));
+    this.rellenarMusicosWithInstrumentName();
   }
 
   deleteMusico(id:number):void{
-    this.musicoService.delete(id).subscribe(response => this.rellenarMusicos(),
+    this.musicoService.delete(id).subscribe(response => this.rellenarMusicosWithInstrumentName(),
     error => console.error(error));
   }
 
-  getNameInstrumento(id:number):string{
-
-    this.instrumentoService.getNameInstrumento(id).subscribe(
-    name=> this.nameInstrumento = name , error => console.error(error));
-    return this.nameInstrumento;
+  rellenarMusicosWithInstrumentName():void{
+    this.musicoService.getMusicosWithInstrumentName().subscribe(musico => this.musicos = musico,
+      error =>console.error(error));
   }
+
+
 
 
 

@@ -25,6 +25,8 @@ export class MusicoFormComponent implements OnInit {
   //para que al dar de alta a un musico pueda elegir
   //el instrumento que quiera tocar
   instrumentos:Instrumento[];
+  musicoDefault: Musico;
+  instrumentoDefault:Instrumento;
 
 
 
@@ -71,7 +73,8 @@ export class MusicoFormComponent implements OnInit {
 
         //método para rellenar el formulario
         this.musicoService.getMusico(this.idMusico).subscribe(objectt =>
-          this.completeteFormToEdit(objectt), error => console.error(error));
+          this.completeteFormToEdit(objectt));
+
       }
     })
 
@@ -79,6 +82,7 @@ export class MusicoFormComponent implements OnInit {
 
   private completeteFormToEdit(musico: Musico):void{
 
+    //asignamos el objeto al formulario
     this.formGroup.patchValue({
       nombreMusico: musico.nombreMusico,
       //utilizamos una pipe para formatear la fecha, ya que el input de tipo date
@@ -87,6 +91,9 @@ export class MusicoFormComponent implements OnInit {
       sueldoMusico: musico.sueldoMusico,
       instrumentoId: musico.instrumentoId
     })
+    this.musicoDefault = musico;
+
+
 
   }
 
@@ -98,14 +105,36 @@ export class MusicoFormComponent implements OnInit {
     if(this.edit){
       //le añadimos el id, para que sepa que elemento tenemos que actualizar
       musico.id = this.idMusico;
-      this.musicoService.putMusico(musico).subscribe(response =>
-        this.success(), error => console.error(error));
+
+      if(this.musicoDefault.instrumentoId != musico.instrumentoId){
+
+        //actualizar la cantidad => aumentando y reduciendo la cantidad de los instrumentos
+
+        this.instrumentoService.PutReducirAndAumentarCantidad(this.musicoDefault.instrumentoId, musico.instrumentoId, new Instrumento())
+        .subscribe(response => this.musicoService.putMusico(musico).subscribe(response =>
+          this.success(), error => console.error(error)));
+
+      }else{
+
+        this.musicoService.putMusico(musico).subscribe(response =>
+          this.success(), error => console.error(error));
+
+      }
+
     }else{
       //modo creación
-      this.musicoService.postMusico(musico).subscribe(response =>
-        this.success(), error => console.error(error));
+      //reducimos la cantidad del instrumento elegido e insertamos el nuevo músico
+      this.instrumentoService.putReducirCantidad(musico.instrumentoId, new Instrumento()).subscribe(
+        response => this.musicoService.postMusico(musico).subscribe(
+          response=>this.success(), error => console.error(error)
+        ));
+
+
+
     }
   }
+
+
 
 
    //cuando las operaciones de guardar o editar sean correctas,
